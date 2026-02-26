@@ -313,11 +313,12 @@ img {
 
 /* ---- Hero Carousel ---- */
 .hero {
-  background-color: #ebebeb;
+  background-color: #FFF159;
   overflow: hidden;
 }
 
 .carousel {
+  
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -335,13 +336,21 @@ img {
 }
 
 .carousel__slide-content {
+  /* Substitua o caminho pela URL da sua imagem */
+  background-image: url("../public/mes-consumidor-banner.JPEG"); 
+  
+  /* Propriedades essenciais para banners */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Faz a imagem cobrir todo o container */
+  
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 300px;
+  min-height: 340px; /* Ajuste a altura conforme seu banner */
   gap: 24px;
 }
 
