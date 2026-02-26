@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mercado Livre Brasil - Onde comprar e vender de Tudo</title>
+    <link rel="icon" type="image/png" href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="#" class="header__logo" aria-label="Mercado Livre">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54" width="54" height="54" aria-hidden="true">
+            <circle cx="27" cy="27" r="27" fill="#FFE600"/>
+            <path d="M27 10.5c9.11 0 16.5 7.39 16.5 16.5S36.11 43.5 27 43.5 10.5 36.11 10.5 27 17.89 10.5 27 10.5z" fill="#FFE600"/>
+            <path d="M35.4 21.3l-5.7 8.4c-.3.45-.9.6-1.35.3l-.15-.12-1.2-1.2-1.2 1.2c-.39.39-1.02.39-1.41 0l-.09-.09-5.7-8.49c-.3-.45-.18-1.05.27-1.35.45-.3 1.05-.18 1.35.27L26.1 28l1.5-1.5c.39-.39 1.02-.39 1.41 0l1.5 1.5 4.98-7.47c.3-.45.9-.57 1.35-.27.45.3.57.9.27 1.35l-.71-.31z" fill="#333"/>
+          </svg>
+          <span class="header__logo-text">mercado<strong>livre</strong></span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="header__search">
+          <form class="search-form" action="#" method="get">
+            <input
+              type="text"
+              class="search-form__input"
+              placeholder="Buscar produtos, marcas e muito mais…"
+              aria-label="Buscar no Mercado Livre"
+              id="search-input"
+              autocomplete="off"
+            />
+            <button type="submit" class="search-form__btn" aria-label="Buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+            <!-- Autocomplete dropdown -->
+            <ul class="search-form__autocomplete" id="autocomplete-list" role="listbox" hidden></ul>
+          </form>
+        </div>
+
+        <!-- Header Actions -->
+        <nav class="header__nav" aria-label="Ações do cabeçalho">
+          <a href="#" class="header__nav-link">
+            <span>Entre</span>
+          </a>
+          <a href="#" class="header__nav-link">
+            <span>Crie sua conta</span>
+          </a>
+          <a href="#" class="header__nav-link header__nav-link--bold">
+            <span>Venda o seu</span>
+          </a>
+          <a href="#" class="header__nav-link header__nav-link--cart" aria-label="Carrinho de compras">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/>
+              <circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sub-header navigation -->
+      <div class="subheader">
+        <div class="subheader__inner">
+          <nav class="subheader__nav" aria-label="Categorias">
+            <div class="subheader__nav-item subheader__nav-item--dropdown" id="categories-menu">
+              <button class="subheader__nav-btn" aria-haspopup="true" aria-expanded="false">
+                Categorias
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="dropdown-menu" role="menu" hidden>
+                <li role="menuitem"><a href="#">Moda e Acessórios</a></li>
+                <li role="menuitem"><a href="#">Eletrônicos e Tecnologia</a></li>
+                <li role="menuitem"><a href="#">Esportes e Lazer</a></li>
+                <li role="menuitem"><a href="#">Beleza e Cuidado Pessoal</a></li>
+                <li role="menuitem"><a href="#">Bebês e Kids</a></li>
+                <li role="menuitem"><a href="#">Ferramentas e Construção</a></li>
+                <li role="menuitem"><a href="#">Casa, Móveis e Decoração</a></li>
+                <li role="menuitem"><a href="#">Automotivo</a></li>
+                <li role="menuitem"><a href="#">Serviços</a></li>
+                <li role="menuitem"><a href="#">Alimentos e Bebidas</a></li>
+                <li role="menuitem"><a href="#">Brinquedos e Hobbies</a></li>
+                <li role="menuitem"><a href="#">Saúde</a></li>
+              </ul>
+            </div>
+            <a href="#" class="subheader__nav-link">Ofertas do Dia</a>
+            <a href="#" class="subheader__nav-link">Histórico</a>
+            <a href="#" class="subheader__nav-link">Supermercado</a>
+            <a href="#" class="subheader__nav-link">Moda</a>
+            <a href="#" class="subheader__nav-link">Eletrônicos</a>
+            <a href="#" class="subheader__nav-link">Eletrodomésticos</a>
+            <a href="#" class="subheader__nav-link">Esporte e Lazer</a>
+            <a href="#" class="subheader__nav-link">Veículos</a>
+            <a href="#" class="subheader__nav-link">Imóveis</a>
+            <a href="#" class="subheader__nav-link">Serviços</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+      <!-- Hero Banner Carousel -->
+      <section class="hero" aria-label="Banners promocionais">
+        <div class="carousel" id="hero-carousel">
+          <div class="carousel__track" id="carousel-track">
+            <!-- Slide 1 -->
+            <div class="carousel__slide" aria-label="Slide 1">
+              <div class="carousel__slide-content" style="background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);">
+                <div class="carousel__text">
+                  <span class="carousel__badge">Oferta Especial</span>
+                  <h2>Smartphones e Celulares</h2>
+                  <p>Os melhores modelos com os melhores preços</p>
+                  <a href="#" class="carousel__btn">Ver ofertas</a>
+                </div>
+                <div class="carousel__image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="160" height="200">
+                    <rect x="30" y="5" width="140" height="290" rx="18" ry="18" fill="#1a1a2e"/>
+                    <rect x="40" y="20" width="120" height="240" rx="8" ry="8" fill="#16213e"/>
+                    <rect x="45" y="25" width="110" height="230" rx="6" ry="6" fill="#0f3460"/>
+                    <rect x="80" y="285" width="40" height="8" rx="4" ry="4" fill="#333"/>
+                    <circle cx="100" cy="289" r="5" fill="#444"/>
+                    <text x="100" y="145" text-anchor="middle" fill="#FFE600" font-size="40" font-family="Arial">📱</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel__slide" aria-label="Slide 2">
+              <div class="carousel__slide-content" style="background: linear-gradient(135deg, #005c97 0%, #363795 100%);">
+                <div class="carousel__text">
+                  <span class="carousel__badge">Frete Grátis</span>
+                  <h2>Televisores e Monitores</h2>
+                  <p>Smart TVs com desconto imperdível</p>
+                  <a href="#" class="carousel__btn">Comprar agora</a>
+                </div>
+                <div class="carousel__image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="220" height="160">
+                    <rect x="10" y="10" width="280" height="160" rx="12" ry="12" fill="#1a1a2e"/>
+                    <rect x="20" y="18" width="260" height="144" rx="8" ry="8" fill="#0d1b2a"/>
+                    <rect x="25" y="22" width="250" height="136" rx="5" ry="5" fill="#1b2838"/>
+                    <rect x="120" y="170" width="60" height="20" rx="4" ry="4" fill="#333"/>
+                    <rect x="80" y="188" width="140" height="8" rx="4" ry="4" fill="#444"/>
+                    <text x="150" y="100" text-anchor="middle" fill="#FFE600" font-size="50" font-family="Arial">📺</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel__slide" aria-label="Slide 3">
+              <div class="carousel__slide-content" style="background: linear-gradient(135deg, #1a1a2e 0%, #e94560 100%);">
+                <div class="carousel__text">
+                  <span class="carousel__badge">Moda</span>
+                  <h2>Roupas e Acessórios</h2>
+                  <p>As últimas tendências com os melhores preços</p>
+                  <a href="#" class="carousel__btn">Ver coleção</a>
+                </div>
+                <div class="carousel__image">
+                  <text style="font-size:120px;">👗</text>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Carousel controls -->
+          <button class="carousel__control carousel__control--prev" id="carousel-prev" aria-label="Slide anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="carousel__control carousel__control--next" id="carousel-next" aria-label="Próximo slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+          <!-- Indicators -->
+          <div class="carousel__indicators" role="tablist" aria-label="Slides">
+            <button class="carousel__dot carousel__dot--active" role="tab" aria-selected="true" aria-label="Slide 1" data-index="0"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false" aria-label="Slide 2" data-index="1"></button>
+            <button class="carousel__dot" role="tab" aria-selected="false" aria-label="Slide 3" data-index="2"></button>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-wrapper">
+        <!-- Categories Grid -->
+        <section class="section categories-section" aria-labelledby="categories-heading">
+          <h2 class="section__title" id="categories-heading">Navegue pelas categorias</h2>
+          <div class="categories-grid">
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">📱</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Celulares e Tablets</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">💻</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Informática</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">📺</text>
+                </svg>
+              </div>
+              <span class="category-card__name">TV e Vídeo</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">👗</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Moda</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🏠</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Casa e Decoração</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🚗</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Automotivo</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">⚽</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Esporte e Lazer</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🧴</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Beleza e Cuidado</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🍎</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Supermercado</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🎮</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Games</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">👶</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Bebês</span>
+            </a>
+            <a href="#" class="category-card">
+              <div class="category-card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+                  <text y="50" font-size="48">🔧</text>
+                </svg>
+              </div>
+              <span class="category-card__name">Ferramentas</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Offers of the day section -->
+        <section class="section offers-section" aria-labelledby="offers-heading">
+          <div class="section__header">
+            <h2 class="section__title" id="offers-heading">Ofertas do dia</h2>
+            <a href="#" class="section__see-all">Ver todas as ofertas
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+          </div>
+          <div class="products-slider" id="offers-slider">
+            <div class="products-slider__track" id="offers-track">
+              <!-- Product Card 1 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-35%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>📱</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Smartphone Samsung Galaxy A55 5G 256GB</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;2.299,00</span>
+                      <span class="product-card__price">R$&nbsp;1.499,90</span>
+                      <span class="product-card__installments">em 12x R$&nbsp;124,99</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+              <!-- Product Card 2 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-28%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>💻</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Notebook Lenovo IdeaPad 3 Core i5 8GB 256GB SSD</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;3.499,00</span>
+                      <span class="product-card__price">R$&nbsp;2.519,90</span>
+                      <span class="product-card__installments">em 10x R$&nbsp;251,99</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+              <!-- Product Card 3 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-42%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>🎧</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Fone de Ouvido Bluetooth JBL Tune 510BT</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;349,90</span>
+                      <span class="product-card__price">R$&nbsp;199,90</span>
+                      <span class="product-card__installments">em 6x R$&nbsp;33,31</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+              <!-- Product Card 4 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-20%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>📺</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Smart TV LG 50" LED 4K UHD ThinQ AI</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;2.799,00</span>
+                      <span class="product-card__price">R$&nbsp;2.239,90</span>
+                      <span class="product-card__installments">em 12x R$&nbsp;186,65</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+              <!-- Product Card 5 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-15%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>🎮</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Controle sem Fio DualSense PlayStation 5</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;499,90</span>
+                      <span class="product-card__price">R$&nbsp;424,90</span>
+                      <span class="product-card__installments">em 10x R$&nbsp;42,49</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+              <!-- Product Card 6 -->
+              <div class="product-card">
+                <a href="#" class="product-card__link">
+                  <div class="product-card__image-wrapper">
+                    <div class="product-card__badge product-card__badge--discount">-30%</div>
+                    <div class="product-card__img-placeholder">
+                      <span>🏋️</span>
+                    </div>
+                  </div>
+                  <div class="product-card__info">
+                    <p class="product-card__title">Bicicleta Ergométrica Kikos E30 Magnética</p>
+                    <div class="product-card__price-block">
+                      <span class="product-card__price-original">R$&nbsp;1.299,00</span>
+                      <span class="product-card__price">R$&nbsp;909,90</span>
+                      <span class="product-card__installments">em 12x R$&nbsp;75,82</span>
+                    </div>
+                    <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <button class="products-slider__control products-slider__control--prev" aria-label="Produtos anteriores" data-slider="offers">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <button class="products-slider__control products-slider__control--next" aria-label="Próximos produtos" data-slider="offers">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Mercado Livre promo banner -->
+        <section class="promo-banner" aria-label="Serviços do Mercado Livre">
+          <div class="promo-banner__inner">
+            <div class="promo-banner__item">
+              <div class="promo-banner__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+              </div>
+              <div class="promo-banner__text">
+                <strong>Envio rápido e seguro</strong>
+                <span>Para todo o Brasil</span>
+              </div>
+            </div>
+            <div class="promo-banner__divider"></div>
+            <div class="promo-banner__item">
+              <div class="promo-banner__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <div class="promo-banner__text">
+                <strong>Pague parcelado</strong>
+                <span>Sem juros no cartão</span>
+              </div>
+            </div>
+            <div class="promo-banner__divider"></div>
+            <div class="promo-banner__item">
+              <div class="promo-banner__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="promo-banner__text">
+                <strong>Compra Garantida</strong>
+                <span>Dinheiro de volta se não chegar</span>
+              </div>
+            </div>
+            <div class="promo-banner__divider"></div>
+            <div class="promo-banner__item">
+              <div class="promo-banner__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div class="promo-banner__text">
+                <strong>Melhores preços</strong>
+                <span>Comparamos para você</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mercado Pontos / Full section -->
+        <section class="section full-section" aria-labelledby="full-heading">
+          <div class="full-banner">
+            <div class="full-banner__content">
+              <div class="full-banner__badge">Nível 6</div>
+              <h2 id="full-heading">Seja Mercado Pontos <span class="full-banner__highlight">Full</span></h2>
+              <ul class="full-banner__benefits">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00A650" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Frete grátis ilimitado
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00A650" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Descontos exclusivos
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00A650" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  Disney+ incluso
+                </li>
+              </ul>
+              <a href="#" class="full-banner__cta">Saiba mais</a>
+            </div>
+            <div class="full-banner__image">
+              <div class="full-banner__logo">
+                <span class="full-logo">ML</span>
+                <span class="full-logo-text">Pontos</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recommended products -->
+        <section class="section recommended-section" aria-labelledby="recommended-heading">
+          <div class="section__header">
+            <h2 class="section__title" id="recommended-heading">Recomendados para você</h2>
+            <a href="#" class="section__see-all">Ver mais
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+          </div>
+          <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__img-placeholder">
+                    <span>⌚</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Smartwatch Amazfit GTS 4 Mini GPS 43mm</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;599,90</span>
+                    <span class="product-card__installments">em 10x R$&nbsp;59,99</span>
+                  </div>
+                  <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                </div>
+              </a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__img-placeholder">
+                    <span>🖨️</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Impressora Multifuncional HP DeskJet Plus 4120</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;489,90</span>
+                    <span class="product-card__installments">em 10x R$&nbsp;48,99</span>
+                  </div>
+                  <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                </div>
+              </a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__badge product-card__badge--discount">-25%</div>
+                  <div class="product-card__img-placeholder">
+                    <span>🎒</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Mochila Escolar Feminina com USB Impermeável</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price-original">R$&nbsp;159,90</span>
+                    <span class="product-card__price">R$&nbsp;119,90</span>
+                    <span class="product-card__installments">em 4x R$&nbsp;29,97</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__img-placeholder">
+                    <span>🪑</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Cadeira Gamer ThunderX3 TC3 Reclinável</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;1.199,90</span>
+                    <span class="product-card__installments">em 12x R$&nbsp;99,99</span>
+                  </div>
+                  <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                </div>
+              </a>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__badge product-card__badge--new">Novo</div>
+                  <div class="product-card__img-placeholder">
+                    <span>🎸</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Violão Elétrico Tagima T-Classic Semi Hollow</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;899,90</span>
+                    <span class="product-card__installments">em 12x R$&nbsp;74,99</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__img-placeholder">
+                    <span>🏃</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Tênis de Corrida Masculino Nike Revolution 6 Next Nature</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;349,90</span>
+                    <span class="product-card__installments">em 6x R$&nbsp;58,31</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__badge product-card__badge--discount">-18%</div>
+                  <div class="product-card__img-placeholder">
+                    <span>🧴</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Kit Skincare Vitamina C Hidratante Facial 3 peças</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price-original">R$&nbsp;149,90</span>
+                    <span class="product-card__price">R$&nbsp;122,90</span>
+                    <span class="product-card__installments">em 4x R$&nbsp;30,72</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card product-card--grid">
+              <a href="#" class="product-card__link">
+                <div class="product-card__image-wrapper">
+                  <div class="product-card__img-placeholder">
+                    <span>🍳</span>
+                  </div>
+                </div>
+                <div class="product-card__info">
+                  <p class="product-card__title">Fritadeira Air Fryer Britânia BFR1200B 4L Digital</p>
+                  <div class="product-card__price-block">
+                    <span class="product-card__price">R$&nbsp;299,90</span>
+                    <span class="product-card__installments">em 6x R$&nbsp;49,98</span>
+                  </div>
+                  <span class="product-card__shipping product-card__shipping--free">Frete grátis</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <!-- About section -->
+        <div class="footer__section">
+          <h3 class="footer__heading">Sobre Nós</h3>
+          <ul class="footer__links">
+            <li><a href="#">Sobre o Mercado Livre</a></li>
+            <li><a href="#">Investidores</a></li>
+            <li><a href="#">Tendências</a></li>
+            <li><a href="#">Sustentabilidade</a></li>
+          </ul>
+        </div>
+        <!-- Help section -->
+        <div class="footer__section">
+          <h3 class="footer__heading">Ajuda</h3>
+          <ul class="footer__links">
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Como comprar</a></li>
+            <li><a href="#">Como vender</a></li>
+            <li><a href="#">Resoluções</a></li>
+          </ul>
+        </div>
+        <!-- For sellers section -->
+        <div class="footer__section">
+          <h3 class="footer__heading">Para Vendedores</h3>
+          <ul class="footer__links">
+            <li><a href="#">Venda no Mercado Livre</a></li>
+            <li><a href="#">Tarifas e Prazos</a></li>
+            <li><a href="#">Mercado Ads</a></li>
+            <li><a href="#">Solução para empresas</a></li>
+          </ul>
+        </div>
+        <!-- Payment section -->
+        <div class="footer__section">
+          <h3 class="footer__heading">Pagamento</h3>
+          <ul class="footer__links">
+            <li><a href="#">Mercado Pago</a></li>
+            <li><a href="#">Parcelamento</a></li>
+            <li><a href="#">Segurança</a></li>
+          </ul>
+        </div>
+        <!-- Social section -->
+        <div class="footer__section">
+          <h3 class="footer__heading">Redes Sociais</h3>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter/X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+              </svg>
+            </a>
+          </div>
+          <div class="footer__app">
+            <p>Baixe nosso app</p>
+            <div class="footer__app-links">
+              <a href="#" class="footer__app-btn" aria-label="Download na App Store">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                App Store
+              </a>
+              <a href="#" class="footer__app-btn" aria-label="Download no Google Play">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M3.18 23.82a2 2 0 0 0 2.83 0l11.31-11.3L6.01 1.21A2 2 0 0 0 3.18 4.04v19.78zM20.5 10.59l-2.72-1.56L14.83 12l2.95 2.97 2.72-1.56a2 2 0 0 0 0-2.82zM6.01 22.79l10.1-5.82-2.95-2.97L6.01 22.79zM6.01 1.21l7.15 7.58-2.95 2.97L6.01 1.21z"/>
+                </svg>
+                Google Play
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer bottom -->
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <p class="footer__copyright">Copyright © 1999-2024 MercadoLivre S.r.l.</p>
+          <nav class="footer__legal" aria-label="Links legais">
+            <a href="#">Privacidade</a>
+            <a href="#">Defesa do Consumidor</a>
+            <a href="#">Termos e condições</a>
+            <a href="#">Acessibilidade</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
